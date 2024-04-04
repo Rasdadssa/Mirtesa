@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="style.css" />
+    <title>Sim ou Não</title>
+  </head>
+  </body>
+  <body style="
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: lightblue;
+">
+  <div class="card" id="card" style="display: flex;justify-content: center;align-items: center;flex-direction: column;height: 600px;width: 600px;background-color: white;border-radius: 8px;box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);">
+    <div class="question" id="question" style="
+  font-size: 32px;
+  font-family: sans-serif;
+  font-weight: 600;
+">
+      <p>Me dá um beijinho hoje?</p>
+      <div class="buttons" style="
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+">
+        <button id="yes" class="btn-yes" style="
+  height: 48px;
+  width: 100px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #9AFF9A;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* gap: 16px; */
+">Sim</button><button id="no" class="btn-no" style="
+  height: 48px;
+  width: 100px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #FF4040;
+  color: #fff;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* gap: 16px; */
+">Não</button>
+      </div>
+    </div>
+
+    <div class="answer" id="answer" style="display: none;">
+      <p style="
+  font-size: 48px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #2d0ce6;
+  text-shadow: 1px 1px #000;
+">Eu sabia! Te amo</p>
+    </div>
+  </div>
+  <script>
+    let card = document.getElementById("card")
+
+    // Exibir a mensagem caso seja selecionado o 'sim'
+    document.querySelector("#yes").addEventListener("click", function () {
+        let question = document.getElementById("question");
+        let message = document.getElementById("answer");
+
+        card.style.backgroundImage = 
+          "url('https://img1.picmix.com/output/stamp/normal/5/1/0/1/1171015_f458c.gif')";
+        question.style.display = "none";
+        message.style.display = "flex";
+    });
+
+    // Movimento aleatório do botão 'não'
+    document.querySelector("#no").addEventListener("mouseover", function () {
+        let width = window.innerWidth - 50;
+        let height = window.innerHeight - 50;
+
+        this.style.position = "absolute";
+        this.style.top = Math.random() * width + "px";
+        this.style.left = Math.random() * height + "px";
+    });
+  </script>
+
+
+</html>
